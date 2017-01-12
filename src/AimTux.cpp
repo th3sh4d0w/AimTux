@@ -1,5 +1,4 @@
 #include <iostream>
-#include <X11/Xlib.h>
 
 #include "interfaces.h"
 #include "hooker.h"
@@ -11,8 +10,6 @@ EventListener* eventListener = nullptr;
 /* called when the library is loading */
 int __attribute__((constructor)) aimtux_init()
 {
-	XGetPointerControl(XOpenDisplay(NULL), &Aimbot::acc_num, &Aimbot::acc_denom, &Aimbot::threshold);
-
 	Interfaces::dumpInterfaces();
 
 	Hooker::FindInterfaces();
